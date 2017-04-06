@@ -1,46 +1,8 @@
-//function to generate badlibs
-function Badlib (name) {
-	this.name = name;
-	this.badlibContent = [];
-	this.badlibValues = [];
-}
-
-// array that holds our badlibs info
-var badlibArray = [];
-
-//badlibs data/generation
-var vacation = new Badlib ('Vacation');
-vacation.badlibContent = ["A vacation is when you take a trip to some", "place with your", "family. Usually you go to some place."];
+//badlib content to fill in
+badlibContent = ["A vacation is when you take a trip to some", "place with your", "family. Usually you go to some place."];
 badlibValues = ["Adjective", "Adjective2", "Noun"];
-badlibArray.push(vacation);
 
-
-
-
-//create list of badlib types
-function displayBadlibs() {
-	var insertLibs = document.getElementById('badlibsList');
-	var libHeader = document.createElement('h1');
-	libHeader.textContent = 'Badlibs list';
-	insertLibs.appendChild(libHeader);
-	var libUl = document.createElement('ul');
-	insertLibs.appendChild(libUl);
-	for (i = 0; i < badlibArray.length; i++) {
-		var libLi = document.createElement('li');
-		libUl.appendChild(libLi);
-		var libA = document.createElement('a');
-		libA.setAttribute('href', 'badlib.html?id=' + badlibArray[i].pageLink);
-		libA.innerHTML = badlibArray[i].name;
-		libLi.appendChild(libA);
-	};
-}
-
-var libsListExists = document.getElementById('badlibsList');
-if (libsListExists) {
-	displayBadlibs();
-}
-
-
+//create text input areas 
 function displayBadlibData() {
   var insertLibs = document.getElementById('enterlibsList');
   var libHeader = document.createElement('h1');
@@ -54,6 +16,7 @@ function displayBadlibData() {
     var libInput = document.createElement('input');
     libInput.type = "text";
     libInput.id = badlibValues[i];
+    libInput.value = badlibValues[i];
     var libText = document.createElement('p');
     libText.innerHTML = badlibValues[i];
     libLi.appendChild(libInput);
@@ -61,24 +24,68 @@ function displayBadlibData() {
   };
 }
 
+//call code to create text input areas
 var libsListExists = document.getElementById('enterlibsList');
 if (libsListExists) {
   displayBadlibData();
 }
 
-function storeBadlib() {
-  for (i=0;i<badlibValues.length;i++){
-  var libValue = document.getElementById(badlibValues[i]);
-  localstorage.setItem(badlibValues[i], libValue);
-}}
+var storedLib = [];
+//store badlib input data
 
-function finalBadlib(){
-  storeBadlib();
-  
+function collectLib() {
+  for (i=0; i<badlibValues; i++) {
+    var frog = document.getElementById(badlibValues[i])
+    storedLib.push(frog);
+  }
 }
 
-function retrieveBadlib() {
-  for (i=0;i<badlibValues.length;i++){
-    var libStored = getItem(badlibValues[i])
+function storeBadlib() {
+localStorage.setItem('storedBadlib', JSON.stringify(storedLib))
+}
 
-}}
+//e
+ // var libValue = [];
+//  libValue = document.getElementById(badlibValues[i]);
+//  for (i=0;i<badlibValues.length;i++){
+//  localStorage.setItem("lastname", "Smith");
+//  localstorage.setItem(badlibValues[i], libValue[i])
+//}
+//}
+ // 
+//  var libValue = document.getElementById(badlibValues[i]);s
+ // localstorage.setItem(badlibValues[i], libValue);
+
+
+//retrieve badlib data
+function retrieveBadlib() {
+  document.getElementById("badlibsFinal").innerHTML = JSON.parse(localStorage.getItem("lastname"));
+}
+//  for (i=0;i<badlibValues.length;i++){
+ //   var libStored = getItem(badlibValues[i])
+
+
+
+//redirect to final lib
+function redirectFinal() {
+  window.location.href = 'badlib.html';
+}
+
+//redirect to enter lib
+function redirectEnter() {
+  window.location.href = 'enterlibs.html';
+
+}
+
+//binds redirect to submit button
+var submitLibExists = document.getElementById('submitlibbutton');
+if (submitLibExists) {
+  submitLibExists.addEventListener("click", redirectFinal, false);
+  storeBadlib();
+}
+
+var resetLibExists = document.getElementById('resetlib');
+if (resetLibExists) {
+  resetLibExists.addEventListener("click", redirectEnter, false);
+  retrieveBadlib();
+}
