@@ -1,6 +1,17 @@
 //badlib content to fill in
-badlibContent = ["A vacation is when you take a trip to some", "place with your", "family. Usually you go to some place."];
-badlibValues = ["Adjective", "Adjective2", "Noun"];
+badlibContent = ['It was Thanksgiving, and the scent of succulent roast', 'wafted through my house. \"',
+                  ', it\'s time to ', '\!\" my mother called. I couldn\'t wait to get my', 'on that',
+                  'Thanksgiving meal.', 'My family sat around the dining-room', '. The table was laid out with every kind of',
+                  'imaginable. There was a basket of hot buttered', 'and glasses of sparkling', '. The ',
+                  'turkey sat, steaming, next to a tureen of', 'gravy. A bowl of ruby-red', 'sauce, a sweet-',
+                  'casserole, and a dish of mashed', 'tempted my taste buds. But the dish I looked forward to most was Grandma',
+                  '\'s famous', 'pie. Thanksgiving is my favorite holiday,', 'down.'];
+
+
+badlibValues = ["Noun", "Person_in_Room", "Verb", "Part_of_the_Body(Plural)", "Adjective",
+                "Noun_2", "Noun_3", "Plural_Noun", "Type of Liquid", "Adjective_2", "Noun_4",
+                "Noun_5", "Noun_6", "Plural_Noun_2", "Person_in_Room(Female)", "Noun_7",
+                "Part_of_the_Body_2(Plural)"];
 
 //create text input areas 
 function displayBadlibData() {
@@ -30,40 +41,35 @@ if (libsListExists) {
   displayBadlibData();
 }
 
+/*Task: 1. Get values from textinput
+    2. Store values into storedLib array
+    3. store storedlib array values into local storage
+    4. retrieve storedlib array values.
+*/
+
+//define array to receive input
 var storedLib = [];
-//store badlib input data
 
-function collectLib() {
-  for (i=0; i<badlibValues; i++) {
-    var frog = document.getElementById(badlibValues[i])
-    storedLib.push(frog);
-  }
-}
 
+//push elements into storedLib
 function storeBadlib() {
-localStorage.setItem('storedBadlib', JSON.stringify(storedLib))
-}
+  for (i=0;i<badlibValues.length;i++){
+    var frog = document.getElementById(badlibValues[i]).value;
+    storedLib.push(frog);
+}}
 
-//e
- // var libValue = [];
-//  libValue = document.getElementById(badlibValues[i]);
-//  for (i=0;i<badlibValues.length;i++){
-//  localStorage.setItem("lastname", "Smith");
-//  localstorage.setItem(badlibValues[i], libValue[i])
-//}
-//}
- // 
-//  var libValue = document.getElementById(badlibValues[i]);s
- // localstorage.setItem(badlibValues[i], libValue);
+//store arrays into local
+function saveBadlibToLocal(){
+    localStorage.setItem('savedBadlibs', JSON.stringify(storedLib));
+}
 
 
 //retrieve badlib data
 function retrieveBadlib() {
-  document.getElementById("badlibsFinal").innerHTML = JSON.parse(localStorage.getItem("lastname"));
+  var dog = JSON.parse(localStorage.getItem('savedBadlibs'));
+  document.getElementById("badlibsFinal").innerHTML = dog
+  console.log(dog)
 }
-//  for (i=0;i<badlibValues.length;i++){
- //   var libStored = getItem(badlibValues[i])
-
 
 
 //redirect to final lib
@@ -74,14 +80,14 @@ function redirectFinal() {
 //redirect to enter lib
 function redirectEnter() {
   window.location.href = 'enterlibs.html';
-
 }
 
-//binds redirect to submit button
+//binds redirect to final to submit button
 var submitLibExists = document.getElementById('submitlibbutton');
 if (submitLibExists) {
+  submitLibExists.addEventListener("click", storeBadlib, false);
+  submitLibExists.addEventListener("click", saveBadlibToLocal, false);
   submitLibExists.addEventListener("click", redirectFinal, false);
-  storeBadlib();
 }
 
 var resetLibExists = document.getElementById('resetlib');
