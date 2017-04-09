@@ -33,7 +33,7 @@ function displayBadlibData() {
     var libInput = document.createElement('input');
     libInput.type = "text";
     libInput.id = badlibValues[i];
-    libInput.value = badlibValues[i];
+    //libInput.value = badlibValues[i];
     var libText = document.createElement('td');
     libText.innerHTML = badlibValuesTitles[i];
     libLi.appendChild(libText);
