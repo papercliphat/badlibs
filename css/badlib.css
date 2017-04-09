@@ -1,0 +1,119 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: block;
+  float: left;
+  z-index: 1030;
+  margin: 0 0 0 0;
+  padding-right: 0;
+  padding-left: 0;
+  background-color: #333333;
+  border-bottom: solid black 1px;
+    -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
+}
+
+#logo {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  float: left;
+  margin-left: 80px;
+  margin-right: 10px;
+  color: #fff;
+  letter-spacing: -0.5px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  font-weight: bold;
+  font-size: 180%;
+  @media (max-width: 499px){
+    margin-left: 10px;
+  }
+  @media (min-width: 500px) and (max-width: 679px) {
+    margin-left: 50px;
+  }
+  @media (min-width: 680px) and (max-width: 879px) {
+    margin-left: 70px;
+  }
+}
+
+body {
+  margin-top: 70px;
+  background-color: #fffff0;
+  position: relative;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 87.5%;
+  line-height: 1.5;
+  text-align: center;
+  height: 100%;
+}
+
+.page {
+  min-height: 100%;
+}
+
+.start-button {
+	background-color: lightblue;
+	margin-top: 30px;
+	padding: 10px 10px 10px 10px;
+	border: 1px solid black;
+}
+
+a:link, a:visited {
+  color: black;
+  text-decoration: none;
+}
+a[href*="index.html"] {
+  color: white;
+  text-decoration: none;
+}
+a:hover {
+  color: green;
+  text-decoration: none;
+}
+a:active {
+  color: silver;
+  text-decoration: none;
+}
+h1 {
+  font-weight: 500;
+  font-size: 225%;
+  @media (max-width: 499px){
+  font-size: 150%;
+  }
+    @media (min-width: 500px) and (max-width: 679px){
+    font-size: 200%;
+  }
+}
+h2 {
+  font-weight: 500;
+  font-size: 187.5%;
+}
+h3 {
+  font-weight: 500;
+  font-size: 150%;
+}
+
+.prompt_header {
+	text-align: left;
+}
+
+.prompt {
+	border: 3px solid green;
+	margin-top: 30px;
+	padding: 15px 25px 15px 25px;
+}
+
+table.center {
+margin-left: auto;
+margin-right: auto;
+margin-top: -35px;
+}
+
+.badlibsFinal {
+	border: 3px solid green;
+	padding: 15px 25px 15px 25px;
+	margin-bottom: 25px;
+	text-align: left;
+}

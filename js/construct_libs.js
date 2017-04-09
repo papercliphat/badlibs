@@ -22,8 +22,8 @@ badlibValuesTitles = ["Noun", "Person in Room", "Verb", "Part of the Body(Plural
 //create text input areas 
 function displayBadlibData() {
   var insertLibs = document.getElementById('enterlibsList');
-  var libHeader = document.createElement('h1');
-  libHeader.textContent = 'Badlibs list';
+  var libHeader = document.createElement('h2');
+  libHeader.textContent = 'Input list';
   insertLibs.appendChild(libHeader);
   var libUl = document.createElement('ul');
   insertLibs.appendChild(libUl);
