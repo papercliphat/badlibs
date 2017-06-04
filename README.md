@@ -1,3 +1,6 @@
+# **BADLIBS**
+
+### Description
 
 Badlibs is your place for one awful madlib. Designed to meet the requirements for testing into a class, a minimum amount of styling and data manipulation was used to maximize developer efficiency!
 
