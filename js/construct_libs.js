@@ -1,4 +1,4 @@
-//badlib content to fill in
+//  badlib content to fill in
 badlibContent = ['It was Thanksgiving, and the scent of succulent roast ', ' wafted through my house. \"',
                   ', it\'s time to ', '\!\" my mother called. I couldn\'t wait to get my ', ' on that ',
                   ' Thanksgiving meal. ', ' My family sat around the dining-room ', '. The table was laid out with every kind of ',
@@ -7,23 +7,23 @@ badlibContent = ['It was Thanksgiving, and the scent of succulent roast ', ' waf
                   ' casserole, and a dish of mashed ', ' tempted my taste buds. But the dish I looked forward to most was Grandma',
                   '\'s famous ', ' pie. Thanksgiving is my favorite holiday, ', ' down.'];
 
-//id's to name input boxes
+//  id's to name input boxes
 badlibValues = ["Noun", "Person_in_Room", "Verb", "Part_of_the_Body(Plural)", "Adjective",
                 "Noun_2", "Noun_3", "Plural_Noun", "Type of Liquid", "Adjective_2", "Noun_4",
                 "Noun_5", "Noun_6", "Plural_Noun_2", "Person_in_Room(Female)", "Noun_7",
                 "Part_of_the_Body_2(Plural)"];
 
-//names to name input boxes
+//  names to name input boxes
 badlibValuesTitles = ["Noun", "Person in Room", "Verb", "Part of the Body(Plural)", "Adjective",
                 "Noun", "Noun", "Plural Noun", "Type of Liquid", "Adjective", "Noun",
                 "Noun", "Noun", "Plural Noun", "Person in Room(Female)", "Noun",
                 "Part of the Body(Plural)"];
 
-//create text input areas 
+//create text input areas
 function displayBadlibData() {
   var insertLibs = document.getElementById('enterlibsList');
-  var libHeader = document.createElement('h2');
-  libHeader.textContent = 'Input list';
+  var libHeader = document.createElement('h1');
+  libHeader.textContent = 'Badlibs list';
   insertLibs.appendChild(libHeader);
   var libUl = document.createElement('ul');
   insertLibs.appendChild(libUl);
@@ -33,7 +33,7 @@ function displayBadlibData() {
     var libInput = document.createElement('input');
     libInput.type = "text";
     libInput.id = badlibValues[i];
-    //libInput.value = badlibValues[i];
+    libInput.value = badlibValues[i];
     var libText = document.createElement('td');
     libText.innerHTML = badlibValuesTitles[i];
     libLi.appendChild(libText);
